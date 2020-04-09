@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %} | Mosprom bot app
+    </title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     {% if current_user.has_role('admin') %}
+                  <a class='nav-link' href = '/admin'> Admin</a>
+              {% endif %}
+
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+      </li>
+
+    </ul>
+      <ul class="navbar-nav navbar-right">
+          <li class="nav-item">
+
+
+          </li>
+      </ul>
+
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+
+            <h1>
+                {% block content_title %}
+                {% endblock %}
+            </h1>
+
+    </div>
+    <div>
+         {% block content %}
+                    {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>
