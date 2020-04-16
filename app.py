@@ -28,6 +28,7 @@ class AdminMixin:
 
 
 class AdminView(AdminMixin, ModelView):
+    column_default_sort = ('pub_date', True)
     pass
 
 
